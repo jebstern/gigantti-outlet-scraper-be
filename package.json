@@ -6,8 +6,8 @@
   "author": "Jesper Skand",
   "license": "MIT",
   "scripts": {
-    "start": "tsc --build . && concurrently --prefix '[{name}]' --names 'tsc,nodemon' 'tsc --build --preserveWatchOutput -w .' 'NODE_ENV=local nodemon dist/index.js'",
-    "tsc": "tsc",
+    "start": "node dist/index.js",
+    "tsc": "tsc --build .",
     "postinstall": "npm run tsc"
   },
   "dependencies": {
