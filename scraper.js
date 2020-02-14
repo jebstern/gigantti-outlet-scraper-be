@@ -15,7 +15,6 @@ axios(url)
       var normal = $(this).find('.prices .normal').text().replace('Norm. hinta','');
       var percent = $(this).find('.prices .percent').text().replace('Ale-%-','').replace(' %','');
       var link = $(this).find('.infos .button.blue').attr('href');
-      console.log(link);
     });
   })
   .catch(console.error);

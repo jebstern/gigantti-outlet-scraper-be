@@ -5,49 +5,42 @@ const cheerio = require("cheerio")
 const _ = require("lodash")
 
 router.get('/uusimmat', async(req, res) => {
-  console.log('/uusimmat')
   const url = 'https://gigantti3.weboutlet.fi/outlet/?myymala=0&kategoria=0';
   const products = await getProducts(url)
   return res.status(200).json({ products })
 });
 
 router.get('/kuva', async(req, res) => {
-  console.log('/kuva')
   const url = 'https://gigantti3.weboutlet.fi/outlet/?myymala=0&kategoria=1';
   const products = await getProducts(url)
   return res.status(200).json({ products })
 });
 
 router.get('/aani', async(req, res) => {
-  console.log('/aani')
   const url = 'https://gigantti3.weboutlet.fi/outlet/?myymala=0&kategoria=8';
   const products = await getProducts(url)
   return res.status(200).json({ products })
 });
 
 router.get('/tietokoneet', async(req, res) => {
-  console.log('/tietokoneet')
   const url = 'https://gigantti3.weboutlet.fi/outlet/?myymala=0&kategoria=2';
   const products = await getProducts(url)
   return res.status(200).json({ products })
 });
 
 router.get('/puhelimet', async(req, res) => {
-  console.log('/puhelimet')
   const url = 'https://gigantti3.weboutlet.fi/outlet/?myymala=0&kategoria=3';
   const products = await getProducts(url)
   return res.status(200).json({ products })
 });
 
 router.get('/kamera', async(req, res) => {
-  console.log('/kamera')
   const url = 'https://gigantti3.weboutlet.fi/outlet/?myymala=0&kategoria=4';
   const products = await getProducts(url)
   return res.status(200).json({ products })
 });
 
 router.get('/kodinkoneet', async(req, res) => {
-  console.log('/kodinkoneet')
   const url = 'https://gigantti3.weboutlet.fi/outlet/?myymala=0&kategoria=5';
   const products = await getProducts(url)
   return res.status(200).json({ products })
@@ -61,7 +54,6 @@ router.get('/pienkoneet', async(req, res) => {
 });
 
 router.get('/pelit', async(req, res) => {
-  console.log('/pelit')
   const url = 'https://gigantti3.weboutlet.fi/outlet/?myymala=0&kategoria=7';
   const products = await getProducts(url)
   return res.status(200).json({ products })
@@ -92,7 +84,6 @@ const getProducts = async(url) => {
         link
       }
       products.push(product)
-      // console.log(sale + ' ----- ' + normal + ' ----- ' + percent);
     });
     let ordered = _.orderBy(products, ['percent'],['desc'])
     return ordered
