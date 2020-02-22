@@ -2,7 +2,7 @@ const express = require("express");
 var cors = require('cors')
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const API_PORT = process.env.PORT || 3001
+const API_PORT = process.env.PORT || 3000
 const app = express()
 const gigantti = require("./routes/gigantti/index.js");
 
