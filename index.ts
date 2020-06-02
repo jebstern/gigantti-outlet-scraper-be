@@ -1,17 +1,16 @@
-const express = require("express");
-var cors = require('cors')
-const bodyParser = require("body-parser");
-const logger = require("morgan");
+import express from 'express'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import logger from 'morgan'
+import gigantti from './routes/'
 const API_PORT = process.env.PORT || 3000
 const app = express()
-const gigantti = require("./routes/gigantti/index.js");
 
-app.use(cors());
-const router = express.Router();
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(logger('dev'))
+app.use('/api', gigantti)
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(logger('dev'));
-app.use('/api', gigantti);
-
-app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`))

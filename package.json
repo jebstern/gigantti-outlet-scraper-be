@@ -6,12 +6,13 @@
   "author": "Jesper Skand",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/index.js",
     "tsc": "tsc --build .",
+    "start": "npm run tsc && node dist/index.js",
     "postinstall": "npm run tsc"
   },
   "dependencies": {
-    "@types/cheerio": "^0.22.13",
+    "@types/cheerio": "^0.22.18",
+    "@types/cors": "^2.8.6",
     "@types/morgan": "^1.7.36",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
@@ -38,6 +39,53 @@
     "lodash": "^4.17.15",
     "nodemon": "^1.19.1",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "@types/node": "^13.13.0",
+    "express": "^4.17.1",
+    "prettier": "^2.0.4",
+    "tslint": "^5.12.1"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "semi": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "prettier/@typescript-eslint"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "modules": true
+      }
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-member-accessibility": "off",
+      "@typescript-eslint/no-use-before-define": "off",
+      "@typescript-eslint/array-type": "off",
+      "@typescript-eslint/ban-types": "off",
+      "@typescript-eslint/camelcase": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "node": "10"
   }
 }
